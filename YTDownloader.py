@@ -76,11 +76,13 @@ def download_thumbnail(url):
 
         images = Image.open(io.BytesIO(image_bytes))
 
-        images.thumbnail((320,180))
+        images.thumbnail((400,225))
 
         thubnail_tk = ImageTk.PhotoImage(images)
 
-        label_thumbnail.config(image = thubnail_tk)
+        label_thumbnail.config(image = thubnail_tk, text="")
+
+        label_thumbnail.image = thubnail_tk
 
     except Exception:
         label_thumbnail.config(text="Thumbnail indisponível")
@@ -275,7 +277,7 @@ frame_info.pack(pady=20)
 
 # Thumbnail
 
-label_thumbnail = tk.Label(frame_info, text="Thumbnail", width=40, height=10, relief="solid")
+label_thumbnail = tk.Label(frame_info, text="Thumbnail", relief="solid")
 
 label_thumbnail.pack(side="left", padx=20)
 
